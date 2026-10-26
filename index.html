@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#15206a"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Rosario"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>Santo Rosario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#f3f7ff;--bg2:#cfdcff;--bg3:#fff3d2;--ink:#1c2760;--soft:#46568f;--gold:#8f6300;--glass:rgba(255,255,255,.66);--line:rgba(143,99,0,.4);--glow:rgba(255,222,140,.7);--stars:0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#060a22;--bg2:#15206a;--bg3:#4a63b8;--ink:#eef3ff;--soft:#b9c6ee;--gold:#f0cf7a;--glass:rgba(18,28,88,.58);--line:rgba(240,207,122,.45);--glow:rgba(255,240,190,.35);--stars:1}}
+:root[data-theme="dark"]{--bg1:#060a22;--bg2:#15206a;--bg3:#4a63b8;--ink:#eef3ff;--soft:#b9c6ee;--gold:#f0cf7a;--glass:rgba(18,28,88,.58);--line:rgba(240,207,122,.45);--glow:rgba(255,240,190,.35);--stars:1}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:1.2rem;background:var(--bg1) linear-gradient(180deg,var(--bg1),var(--bg2) 55%,var(--bg3)) fixed}
+body::before,body::after{content:"";position:fixed;inset:0;pointer-events:none;opacity:var(--stars)}
+body::before{background-image:radial-gradient(1px 1px at 20px 30px,#fff,transparent),radial-gradient(1.5px 1.5px at 90px 70px,#fff,transparent),radial-gradient(1px 1px at 150px 120px,#ffe9a8,transparent),radial-gradient(1px 1px at 60px 160px,#fff,transparent);background-size:200px 200px}
+body::after{background-image:radial-gradient(1.5px 1.5px at 40px 50px,#ffe9a8,transparent),radial-gradient(1px 1px at 130px 140px,#fff,transparent),radial-gradient(1px 1px at 220px 90px,#fff,transparent);background-size:313px 313px;animation:tw 6s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:calc(var(--stars)*.25)}to{opacity:var(--stars)}}
+@media(prefers-reduced-motion:reduce){body::after{animation:none}.b{transition:none}}
+#app{position:relative;max-width:46rem;margin:0 auto;padding:0 16px}
+.top{display:flex;align-items:center;gap:14px;padding:18px 4px 12px;color:var(--soft);font-style:italic}
+.bar{flex:1;height:3px;border-radius:3px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;background:var(--gold);box-shadow:0 0 8px var(--glow)}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:30px;padding:30px 24px 34px;text-align:center;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 0 70px var(--glow),inset 0 0 40px rgba(255,255,255,.06)}
+.k{margin:0 0 6px;color:var(--gold);font-style:italic;font-size:1.1rem}
+h1,h2{font-weight:600;margin:0 0 18px;line-height:1.15}h1{font-size:clamp(2.6rem,10vw,4rem);text-shadow:0 0 28px var(--glow)}h2{font-size:clamp(1.8rem,6vw,2.4rem)}
+.txt{white-space:pre-line;font-size:clamp(1.25rem,3.8vw,1.55rem);line-height:1.6;max-width:34em;margin:0 auto;text-wrap:pretty}
+.note{max-width:32em;margin:0 auto 20px;color:var(--soft);font-style:italic;font-size:1.1rem;line-height:1.5}
+.mn{display:block;font-size:clamp(1.8rem,6vw,2.5rem);font-weight:600;line-height:1.2;margin-bottom:8px}.ref{color:var(--gold);font-style:italic}
+.pt{margin:0 0 18px}.pt em{display:block;color:var(--gold);margin-top:4px}
+.lit p{margin:0 0 4px;line-height:1.4}.lit i{color:var(--gold)}.lit hr{border:0;border-top:1px solid var(--line);margin:18px auto;width:40%}
+.beads{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 18px}
+.b{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#c9d6ff 60%,#8fa4e6);opacity:.35;transition:opacity .4s,box-shadow .4s}.b.on{opacity:1;box-shadow:0 0 14px 4px var(--glow)}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.pray,.go{background:linear-gradient(180deg,#fff2c2,#e9c970);color:#2b2a5a;border:0;border-radius:999px;padding:12px 30px;font-size:1.25rem;font-weight:600;box-shadow:0 0 24px var(--glow)}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:22px 0}
+.chip{background:transparent;border:1px solid var(--line);border-radius:18px;padding:12px 8px}.chip[aria-pressed="true"]{background:var(--glass);border-color:var(--gold);box-shadow:0 0 22px var(--glow)}.chip b{display:block;font-size:1.25rem}.chip small{color:var(--soft);font-size:1rem}
+.sub{color:var(--soft);font-size:1.3rem;margin:0}label{display:block;margin:14px 0 24px;color:var(--soft)}
+select{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:8px 10px;max-width:100%}
+nav{position:sticky;bottom:0;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:14px 0 calc(14px + env(safe-area-inset-bottom,0px))}
+nav button{background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:10px 22px;font-size:1.15rem}
+nav select{flex:1;min-width:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+body::before,body::after{z-index:0}#app{z-index:1}
+.sky{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.rays{position:absolute;left:50%;top:-80vmax;width:160vmax;height:160vmax;margin-left:-80vmax;background:repeating-conic-gradient(rgba(255,244,200,0) 0 8deg,rgba(255,244,200,.16) 10deg 12deg,rgba(255,244,200,0) 14deg 22deg);-webkit-mask:radial-gradient(circle,#000,transparent 50%);mask:radial-gradient(circle,#000,transparent 50%);animation:spin 240s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cl{position:absolute;bottom:-12vh;width:70vw;height:32vh;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.9),rgba(255,255,255,0) 70%);filter:blur(26px);opacity:.8;animation:dr 60s ease-in-out infinite alternate}
+.c1{left:-15vw}.c2{left:30vw;bottom:-17vh;animation-duration:85s;animation-direction:alternate-reverse}.c3{left:62vw;animation-duration:70s}
+@keyframes dr{to{transform:translateX(12vw)}}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .cl{opacity:.28}}
+:root[data-theme="dark"] .cl{opacity:.28}
+.sst{position:absolute;inset:0;opacity:var(--stars)}
+.ss{position:absolute;top:10%;left:75%;width:130px;height:1px;background:linear-gradient(90deg,transparent,#fff);box-shadow:0 0 8px #fff;opacity:0;animation:sh 13s ease-in infinite}
+.s2{top:32%;left:25%;animation-delay:6s;animation-duration:19s}
+@keyframes sh{0%,92%{opacity:0;transform:translate(0,0) rotate(-30deg)}93%{opacity:1}100%{opacity:0;transform:translate(-320px,185px) rotate(-30deg)}}
+.card{position:relative;animation:in .8s ease both;box-shadow:0 0 100px var(--glow),0 24px 60px rgba(0,0,30,.22),inset 0 0 60px rgba(255,255,255,.08)}
+@keyframes in{from{opacity:0;transform:translateY(12px) scale(.985)}}
+.card::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);border-radius:24px;pointer-events:none}
+.card::after{content:"✦";position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:1.7rem;line-height:1;color:var(--gold);text-shadow:0 0 14px var(--glow),0 0 28px var(--glow)}
+h1,h2{font-family:Cinzel,'Cormorant Garamond',Georgia,serif;letter-spacing:.05em;background:linear-gradient(180deg,var(--ink) 20%,var(--gold) 150%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;text-shadow:none;filter:drop-shadow(0 0 16px var(--glow))}
+h1{font-size:clamp(2.2rem,8.5vw,3.5rem)}h2{font-size:clamp(1.5rem,5.2vw,2.1rem)}
+h1::after,h2::after{content:"";display:block;width:170px;height:12px;margin:14px auto 0;background:radial-gradient(circle,var(--gold) 0 3px,transparent 4px) center/12px 12px no-repeat,linear-gradient(90deg,transparent,var(--gold)) left center/68px 1px no-repeat,linear-gradient(270deg,transparent,var(--gold)) right center/68px 1px no-repeat}
+.top span{font-family:Cinzel,Georgia,serif;font-style:normal;letter-spacing:.12em;font-size:.95rem}
+.cr{filter:drop-shadow(0 0 14px var(--glow));animation:pu 4s ease-in-out infinite alternate}
+@keyframes pu{to{filter:drop-shadow(0 0 30px var(--glow));transform:scale(1.07)}}
+.beads{position:relative;gap:12px;margin:32px 0 24px}
+.beads::before{content:"";position:absolute;left:4%;right:4%;top:50%;height:1px;background:var(--line)}
+.b{position:relative;width:30px;height:30px;box-shadow:inset -3px -4px 7px rgba(70,90,170,.5),0 2px 6px rgba(0,0,30,.3)}
+.b.on{box-shadow:inset -3px -4px 7px rgba(190,150,60,.5),0 0 20px 6px var(--glow);transform:scale(1.12)}
+.go,.pray,nav button,.chip{transition:transform .25s,box-shadow .25s,border-color .25s}
+.go:hover,.pray:hover{transform:translateY(-2px);box-shadow:0 0 44px var(--glow)}
+nav button:hover,.chip:hover{box-shadow:0 0 22px var(--glow);border-color:var(--gold)}
+.txt{text-shadow:0 0 22px var(--glow)}
+@media(prefers-reduced-motion:reduce){.rays,.cl,.ss,.card,.cr,.bd.cur{animation:none}}
+.col{min-width:0}.ros{padding:4px 0}.ros svg{display:block;margin:0 auto;height:210px;width:auto;overflow:visible}
+@media(min-width:960px){#app.w{max-width:68rem}.lay{display:grid;grid-template-columns:300px minmax(0,1fr);gap:30px;align-items:start}.ros{position:sticky;top:24px;padding-top:70px}.ros svg{width:100%;height:auto}}
+.th{fill:none;stroke:var(--line);stroke-width:1.2}
+.bd{fill:var(--soft);opacity:.3;transition:fill .6s,opacity .6s,filter .6s}
+.bd.on{fill:var(--gold);opacity:1;filter:drop-shadow(0 0 4px var(--glow)) drop-shadow(0 0 9px var(--glow))}
+.bd.cur{fill:var(--gold);opacity:1;transform-box:fill-box;transform-origin:center;animation:pl 1.3s ease-in-out infinite alternate}
+@keyframes pl{to{transform:scale(1.6);filter:drop-shadow(0 0 10px var(--glow))}}
+.rt{font-family:Cinzel,Georgia,serif;text-anchor:middle;fill:var(--gold)}
+.sm{display:block;margin-top:18px;font-size:1.2rem;line-height:1.55;color:var(--soft)}
+.fr{display:block;margin-top:14px;color:var(--gold);font-style:italic}.lg{display:block;color:var(--soft);font-size:1rem;font-style:italic;margin-bottom:10px}.g2{color:var(--gold);font-style:italic}
+.tools{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 16px}.tools button{background:var(--glass);border:1px solid var(--line);border-radius:999px;padding:6px 15px;font-size:1rem;transition:box-shadow .25s,border-color .25s}.tools button:hover,.tools button[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0 16px var(--glow)}
+textarea{display:block;width:100%;box-sizing:border-box;margin-top:8px;background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:10px 12px;font:inherit;color:inherit;resize:vertical}
+#app .ros{cursor:zoom-in}#app .ros.big{position:fixed;inset:0;top:0;z-index:30;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(var(--bg1),var(--bg2));cursor:zoom-out}#app .ros.big svg{height:86vh;width:auto}
+@media(max-width:959px){.ros svg{height:250px}}
+.mq{display:block;margin-top:12px;color:var(--soft);font-style:italic}
+.cnt{margin:18px 0 6px}.cnt select{margin:8px 6px}.rs{background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:1rem}.rs:hover{border-color:var(--gold);box-shadow:0 0 16px var(--glow)}
+html.simple .sky,html.simple body::before,html.simple body::after{display:none}html.simple *,html.simple *::before,html.simple *::after{animation:none!important;transition:none!important}html.simple .txt{font-size:clamp(1.5rem,5vw,1.9rem);text-shadow:none}html.simple .card{box-shadow:none}
+.cal{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0}.cal i{width:16px;height:16px;border-radius:50%;border:1px solid var(--line)}.cal i.on{background:var(--gold);box-shadow:0 0 10px var(--glow)}.sm2{margin:4px 0;color:var(--soft);font-size:1rem}
+details{margin:12px 0;text-align:left;color:var(--soft)}summary{cursor:pointer;text-align:center;color:var(--ink)}details ol{line-height:1.45;font-size:1.05rem;padding-left:1.3em}
+input.mi{display:block;width:100%;box-sizing:border-box;margin:6px 0;background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font:inherit;color:inherit}#bkc{margin-bottom:8px}.oi{display:block;margin-top:14px;color:var(--gold)}
+.upd{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;background:var(--glass);border:1px solid var(--gold);border-radius:18px;padding:12px 16px;text-align:center;backdrop-filter:blur(10px);box-shadow:0 0 30px var(--glow)}.upd button{margin-left:8px;border:1px solid var(--gold);background:transparent;border-radius:999px;padding:4px 14px}
+</style></head><body>
+<div class="sky" aria-hidden="true"><i class="rays"></i><i class="cl c1"></i><i class="cl c2"></i><i class="cl c3"></i><div class="sst"><i class="ss"></i><i class="ss s2"></i></div></div>
+<main id="app"></main>
+<script>
+const PN=`Padre nuestro, que estás en el cielo, santificado sea tu Nombre; venga a nosotros tu Reino; hágase tu voluntad en la tierra como en el cielo. Danos hoy nuestro pan de cada día; perdona nuestras ofensas, como también nosotros perdonamos a los que nos ofenden; no nos dejes caer en la tentación, y líbranos del mal. Amén.`;
+const AVE=`Dios te salve, María, llena eres de gracia, el Señor es contigo. Bendita tú eres entre todas las mujeres, y bendito es el fruto de tu vientre, Jesús.
+Santa María, Madre de Dios, ruega por nosotros, pecadores, ahora y en la hora de nuestra muerte. Amén.`;
+const GP=`Gloria al Padre, y al Hijo, y al Espíritu Santo. Como era en el principio, ahora y siempre, por los siglos de los siglos. Amén.`;
+const JAC=`Oh mi buen Jesús, perdona nuestros pecados, líbranos del fuego del infierno, lleva al cielo a todas las almas, especialmente a las más necesitadas de tu divina misericordia.`;
+const SC=`Por la señal de la Santa Cruz,
+de nuestros enemigos líbranos, Señor, Dios nuestro.
+En el nombre del Padre, y del Hijo, y del Espíritu Santo. Amén.`;
+const GESTO=`Persignarse: tres cruces pequeñas con el pulgar. En la frente, pidiendo pensamientos buenos y puros; en los labios, para que solo salgan palabras de alabanza y bien; en el pecho, para que en el corazón reine el amor. Después, la cruz grande: de la frente al pecho y del hombro izquierdo al derecho.`;
+const CREDO=`Creo en Dios, Padre Todopoderoso,
+Creador del cielo y de la tierra.
+Creo en Jesucristo, su único Hijo,
+Nuestro Señor,
+que fue concebido por obra y gracia del Espíritu Santo, nació de Santa María Virgen, padeció bajo el poder de Poncio Pilato,
+fue crucificado, muerto y sepultado, descendió a los infiernos, al tercer día resucitó de entre los muertos, subió a los cielos y está sentado a la derecha de Dios, Padre todopoderoso. Desde allí ha de venir
+a juzgar a vivos y muertos.
+
+Creo en el Espíritu Santo,
+la santa Iglesia católica,
+la comunión de los santos,
+el perdón de los pecados,
+la resurrección de la carne
+y la vida eterna.
+Amén.`;
+const CONT=`Jesús, mi Señor y Redentor, yo me arrepiento de todos los pecados que he cometido hasta hoy, y me pesa de todo corazón, porque con ellos he ofendido a un Dios tan bueno. Propongo firmemente no volver a pecar y confío que por tu infinita misericordia me has de conceder el perdón de mis culpas y me has de llevar a la vida eterna. Amén`;
+const ESP=`Oh Espíritu Santo,
+Amor del Padre, y del Hijo,
+Inspírame siempre lo que debo pensar,
+lo que debo decir,
+cómo debo decirlo,
+lo que debo callar,
+cómo debo actuar,
+lo que debo hacer,
+para gloria de Dios,
+bien de las almas
+y mi propia Santificación.
+Espíritu Santo,
+Dame agudeza para entender,
+capacidad para retener,
+método y facultad para aprender,
+sutileza para interpretar,
+gracia y eficacia para hablar.
+Dame acierto al empezar,
+dirección al progresar
+y perfección al acabar.
+Amén.`;
+const GLO=`Gloria a Dios en el cielo,
+y en la tierra paz a los hombres que ama el Señor.
+Por tu inmensa gloria te alabamos,
+te bendecimos, te adoramos,
+te glorificamos, te damos gracias,
+Señor Dios, Rey celestial,
+Dios Padre todopoderoso.
+Señor, Hijo único, Jesucristo.
+Señor Dios, Cordero de Dios, Hijo del Padre;
+tú que quitas el pecado del mundo,
+ten piedad de nosotros;
+tú que quitas el pecado del mundo,
+atiende nuestra súplica;
+tú que estás sentado a la derecha del Padre,
+ten piedad de nosotros;
+porque sólo tú eres Santo,
+sólo tú Señor, sólo tú Altísimo, Jesucristo,
+con el Espíritu Santo
+en la gloria de Dios Padre.
+Amén.`;
+const PETS=['Por la santa Iglesia, por el Papa, los obispos, los sacerdotes y todos los consagrados, para que sean fieles servidores del Evangelio.','Por los gobernantes y por la paz del mundo, para que cesen las guerras y la violencia.','Por nuestras familias, para que vivan unidas en el amor y la fe.','Por los enfermos, los pobres y los que están solos, para que encuentren consuelo y esperanza.','Por los difuntos y las almas del purgatorio, para que descansen en tu paz.','Por nuestras intenciones personales, que ponemos ahora en tus manos.'];
+const PET=PETS.map(t=>`<div class="pt">${t}<em>Te lo pedimos, Señor.</em></div>`).join('');
+const PAPA=`Ahora rezaremos un Padre nuestro, tres Ave Marías, un Gloria y un Salve Regina por el Santo Padre y por todos los de la Iglesia: para que el Señor lo fortalezca, lo guarde y lo guíe, y conceda a todos los pastores y fieles perseverar en la fe, la esperanza y la caridad.`;
+const SAL=`Dios te salve, Reina y Madre de misericordia, vida, dulzura y esperanza nuestra; Dios te salve. A ti llamamos los desterrados hijos de Eva; a ti suspiramos, gimiendo y llorando, en este valle de lágrimas. Ea, pues, Señora, abogada nuestra, vuelve a nosotros esos tus ojos misericordiosos; y después de este destierro muéstranos a Jesús, fruto bendito de tu vientre. ¡Oh clemente, oh piadosa, oh dulce siempre Virgen María!
+Ruega por nosotros, Santa Madre de Dios, para que seamos dignos de alcanzar las promesas de Nuestro Señor Jesucristo. Amén.`;
+const ANG=`Ángel de mi guarda, mi dulce compañía, no me desampares ni de noche ni de día, hasta que me pongas en paz y alegría, con todos los santos, Jesús, José y María. Si me desamparas, ¿Qué será de mí? Santo Ángel de mi guarda, ruega a Dios por mí. Amén.`;
+const MIG=`San Miguel Arcángel, defiéndenos en la batalla. Sé nuestro amparo contra la perversidad y asechanzas del demonio. Reprímale Dios, pedimos suplicantes, y tú, príncipe de la milicia celestial, arroja al infierno con el divino poder a Satanás y a los otros espíritus malignos que andan dispersos por el mundo para la perdición de las almas. Amén`;
+const MAG=`Proclama mi alma la grandeza del Señor, se alegra mi espíritu en Dios, mi salvador; porque ha mirado la humillación de su esclava.
+A partir de ahora me felicitarán todas las generaciones, porque el Poderoso ha hecho obras grandes por mí: su nombre es santo, y su misericordia llega a sus fieles de generación en generación.
+Él hace proezas con su brazo: dispersa a los soberbios de corazón, derriba del trono a los poderosos y enaltece a los humildes, a los hambrientos los colma de bienes y a los ricos los despide vacíos.
+Auxilia a Israel, su siervo, acordándose de la misericordia —como lo había prometido a nuestros padres— en favor de Abrahán y su descendencia por siempre.
+Amén.`;
+const PRO=`Contigo voy, Virgen pura, y en tu poder voy confiado, pues yendo de ti amparado, mi alma volverá segura. ¡Oh Madre mía, oh tierna Madre! Échanos tu bendición y haz que nos bendiga el Padre, el Hijo y el Espíritu Santo. Amén.`;
+const FIN=`Que la paz de Cristo y el amparo de María te acompañen. Amén.`;
+const row=(a,b)=>`<p>${a} <i>${b}</i></p>`;
+const MR='ruega por nosotros.';
+const LITH='<div class="lit">'+[['Señor, ten piedad.','Señor, ten piedad.'],['Cristo, ten piedad.','Cristo, ten piedad.'],['Señor, ten piedad.','Señor, ten piedad.'],['Cristo, óyenos.','Cristo, óyenos.'],['Cristo, escúchanos.','Cristo, escúchanos.']].map(r=>row(...r)).join('')+'<hr>'+
+['Dios, Padre celestial','Dios, Hijo, Redentor del mundo','Dios, Espíritu Santo','Santísima Trinidad, un solo Dios'].map(t=>row(t,'ten piedad de nosotros.')).join('')+'<hr>'+
+['Santa María','Santa Madre de Dios','Santa Virgen de las vírgenes','Madre de Cristo','Madre de la Iglesia','Madre de la misericordia','Madre de la divina gracia','Madre de la esperanza','Madre purísima','Madre castísima','Madre siempre virgen','Madre inmaculada','Madre amable','Madre admirable','Madre del buen consejo','Madre del Creador','Madre del Salvador','Virgen prudentísima','Virgen digna de veneración','Virgen digna de alabanza','Virgen poderosa','Virgen clemente','Virgen fiel','Espejo de justicia','Trono de la sabiduría','Causa de nuestra alegría','Vaso espiritual','Vaso digno de honor','Vaso de insigne devoción','Rosa mística','Torre de David','Torre de marfil','Casa de oro','Arca de la Alianza','Puerta del cielo','Estrella de la mañana','Salud de los enfermos','Refugio de los pecadores','Consuelo de los migrantes','Consoladora de los afligidos','Auxilio de los cristianos','Reina de los Ángeles','Reina de los Patriarcas','Reina de los Profetas','Reina de los Apóstoles','Reina de los Mártires','Reina de los Confesores','Reina de las Vírgenes','Reina de todos los Santos','Reina concebida sin pecado original','Reina asunta al cielo','Reina del Santísimo Rosario','Reina de la familia','Reina de la paz'].map(t=>row(t,MR)).join('')+'<hr>'+
+['perdónanos, Señor.','escúchanos, Señor.','ten misericordia de nosotros.'].map(r=>row('Cordero de Dios, que quitas el pecado del mundo,',r)).join('')+'<hr><p>Ruega por nosotros, Santa Madre de Dios.<br><i>Para que seamos dignos de las promesas de Cristo.</i></p><p style="margin-top:14px">Oración: Te rogamos nos concedas, Señor Dios nuestro, gozar de continua salud de alma y cuerpo, y por la gloriosa intercesión de la bienaventurada siempre Virgen María, vernos libres de las tristezas de la vida presente y disfrutar de las alegrías eternas. Por Cristo nuestro Señor. Amén.</p></div>';
+const M={
+gozosos:{n:'Gozosos',s:'gozoso',dd:'lunes y sábado',dy:[1,6],l:[['La Encarnación del Hijo de Dios','Lc 1,26-38'],['La Visitación de María a su prima Santa Isabel','Lc 1,39-56'],['El Nacimiento del Hijo de Dios en Belén','Lc 2,1-20'],['La Presentación del Niño Jesús en el templo','Lc 2,22-38'],['El Niño Jesús perdido y hallado en el templo','Lc 2,41-52']]},
+luminosos:{n:'Luminosos',s:'luminoso',dd:'jueves',dy:[4],l:[['El Bautismo de Jesús en el Jordán','Mt 3,13-17'],['La autorrevelación de Jesús en las bodas de Caná','Jn 2,1-12'],['El anuncio del Reino de Dios invitando a la conversión','Mc 1,15'],['La Transfiguración del Señor','Lc 9,28-36'],['La institución de la Eucaristía','Jn 13,1']]},
+dolorosos:{n:'Dolorosos',s:'doloroso',dd:'martes y viernes',dy:[2,5],l:[['La oración de Jesús en el Huerto de los Olivos','Mt 26,36-41'],['La flagelación del Señor','Jn 19,1'],['La coronación de espinas','Mt 27,27-31'],['Jesús con la cruz a cuestas camino del Calvario','Jn 19,17'],['La crucifixión y muerte del Señor','Lc 23,33-46']]},
+gloriosos:{n:'Gloriosos',s:'glorioso',dd:'miércoles y domingo',dy:[0,3],l:[['La Resurrección del Señor','Mc 16,1-8'],['La Ascensión del Señor al cielo','Hch 1,6-11'],['La venida del Espíritu Santo','Hch 2,1-4'],['La Asunción de María al cielo',''],['La coronación de María como Reina del cielo y de la tierra','Ap 12,1']]}};
+const ORD=['Primer','Segundo','Tercer','Cuarto','Quinto'],DN=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+const dn=new Date().getDay(),today=Object.keys(M).find(k=>M[k].dy.includes(dn));
+let key=today,lit='end',S=[],i=-1,cnt=0;
+function build(){const m=M[key];S=[];const a=(k,t,p,o)=>S.push({k,t,p,...o});
+const I='Oraciones iniciales';
+a(I,'Señal de la cruz',SC,{note:GESTO});a(I,'Credo',CREDO);a(I,'Acto de contrición',CONT);a(I,'Oración al Espíritu Santo',ESP);a(I,'Himno del Gloria',GLO);a('Peticiones','Oraciones y peticiones',(INT?'<span class="lg">Tus peticiones</span>'+INT.split('\n').filter(x=>x.trim()).map(x=>`<div class="pt">${esc(x)}<em>Te lo pedimos, Señor.</em></div>`).join(''):'')+'<span class="lg">Ejemplos</span>'+PET,{html:1,note:'Este es el momento de hacer las peticiones. Después de cada oración o petición, todos responden: «Te lo pedimos, Señor». Las que aparecen como ejemplos pueden cambiarse por las tuyas'+(INT?'; las que escribiste al comenzar salen primero.':'.')});
+m.l.forEach((d,j)=>{const k=`${ORD[j]} misterio ${m.s}`;
+a(k,'Se lee el misterio',`<b class="mn">${d[0]}</b><span class="ref">${d[1]}</span>${(pf.mi&&pf.mi[j])?`<span class="oi">Lo ofrecemos por: ${esc(pf.mi[j])}</span>`:''}<span class="sm">${SUM[key][j]}</span><span class="fr">Fruto del misterio: ${FR[key][j]}</span><span class="mq">Para meditar: ${Q[key][j]}</span>`,{html:1});
+a(k,'Padre nuestro',PN);a(k,'Diez Ave Marías',AVE,{n:10});a(k,'Gloria Patri',GP);a(k,'Jaculatoria de la Virgen de Fátima',JAC);
+if(lit=='each'||j==4)a(k,'Letanías de la Virgen',LITH,{html:1,lit:1,note:'Texto según la versión publicada por el Vaticano. Si tu parroquia usa otra, sigue la de tu comunidad.'});});
+const P='Por el Santo Padre';
+a(P,'Intención por el Papa y la Iglesia',PAPA);a(P,'Padre nuestro',PN);a(P,'Tres Ave Marías',AVE,{n:3});a(P,'Gloria Patri',GP);a(P,'Salve Regina',SAL);
+const F='Oraciones finales';
+a(F,'Ángel de mi guarda',ANG);a(F,'San Miguel Arcángel',MIG);a(F,'El Magníficat',MAG);a(F,'Protección de la Virgen María',PRO);a(F,'Señal de la cruz',SC,{note:'Para terminar, persígnate de nuevo.'});
+a('Amén','Rosario completado',FIN,{end:1});}
+const app=document.getElementById('app');
+function R(){
+if(i<0){rc=0;app.className='';app.innerHTML=`<section class="card" style="margin-top:28px"><svg class="cr" width="92" height="92" viewBox="0 0 64 64" aria-hidden="true"><g stroke="var(--gold)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".7"><path d="M32 2v8M32 54v8M2 32h8M54 32h8M11 11l6 6M47 47l6 6M53 11l-6 6M17 47l-6 6"/></g><path d="M29 16h6v13h13v6H35v15h-6V35H16v-6h13z" fill="var(--gold)"/></svg>
+<h1>Santo Rosario</h1><p class="sub">Hoy es ${DN[dn]}: corresponden los misterios ${M[today].n.toLowerCase()}.</p>
+<div class="chips">${Object.entries(M).map(([k,m])=>`<button class="chip" data-k="${k}" aria-pressed="${k==key}"><b>${m.n}</b><small>${m.dd}</small></button>`).join('')}</div>
+<label>Letanías <select id="lit"><option value="end">Al final de los cinco misterios</option><option value="each">Después de cada misterio</option></select></label>
+<div class="cnt"><div class="cn">${cnh()}</div><select id="goal" aria-label="Meta del contador"><option value="0">Sin meta</option><option value="9">Novenario (9)</option><option value="30">Treintario (30)</option><option value="54">Rosario de 54 días (54)</option></select><button class="rs" data-a="rst">Reiniciar contador</button></div><label>Oraciones o peticiones para este rosario (una por línea)<textarea id="int" rows="3" placeholder="Por quién o por qué rezas hoy">${esc(INT)}</textarea></label>${MI()}<button class="go" data-a="start">Comenzar</button>${sv0&&sv0.i>0&&M[sv0.key]?'<p><button class="go" data-a="cont">Continuar donde quedé</button></p>':''}${EXTRA()}</section>`;document.getElementById('lit').value=lit;document.getElementById('goal').value=pf.g||0;return}
+const s=S[i];
+app.className='w';app.innerHTML=`<div class="lay"><aside class="ros" data-a="zoom" tabindex="0" role="button" aria-label="Ampliar la camándula">${ros()}</aside><div class="col"><div class="top"><span>Santo Rosario</span><div class="bar"><i style="width:${(i+1)/S.length*100}%"></i></div></div><div class="tools"><button data-a="fm" aria-label="Letra más pequeña">A−</button><button data-a="fp" aria-label="Letra más grande">A+</button><button data-a="gd" aria-pressed="${!!pf.gd}">Guiado</button><button data-a="say">Escuchar</button><button data-a="mus" aria-pressed="${mp}">Música</button><button data-a="sm" aria-pressed="${!!pf.sm}">Simple</button><button data-a="th">Tema: ${TL()}</button></div>
+<section class="card"><p class="k">${s.k}</p><h2>${s.t}</h2>${s.note?`<p class="note">${s.note}</p>`:''}<div class="txt">${gtxt(s)}</div>
+${s.n?`<div class="beads">${[...Array(s.n)].map(()=>'<span class="b"></span>').join('')}</div><button class="pray" data-a="pray" aria-live="polite">Rezar Ave María (0 de ${s.n})</button>`:''}</section>
+<nav><button data-a="prev">Anterior</button><select id="jump" aria-label="Ir a una oración">${S.map((x,j)=>`<option value="${j}"${j==i?' selected':''}>${x.k}: ${x.t}</option>`).join('')}</select>${s.end?'<button data-a="again">Inicio</button>':'<button data-a="next">Siguiente</button>'}</nav></div></div>`;paint()}
+function go(n){if(n<0){i=-1;R();scrollTo(0,0);return}i=Math.min(n,S.length-1);cnt=0;try{speechSynthesis.cancel()}catch(e){}ST.s('rpr',{key,lit,i});if(S[i].end){ST.s('rpr',null);if(!cd){cd=1;pf.n=(pf.n||0)+1;pf.log=(pf.log||[]).concat(td()).slice(-400);pf.days=pf.days||[];if(!pf.days.includes(td()))pf.days.push(td());ST.s('rp',pf)}}else cd=0;wl();R();scrollTo(0,0)}
+const SUM={
+gozosos:['El ángel Gabriel anuncia a María que será la Madre del Hijo de Dios, y ella responde con su sí confiado: «Hágase en mí según tu palabra».','María va deprisa a servir a su prima Isabel. Al saludarla, Juan salta de gozo en el vientre de su madre, e Isabel la proclama bendita; María responde con el Magníficat.','En Belén, en la humildad de un pesebre, nace Jesús, el Salvador. Los pastores y los ángeles lo reconocen y alaban a Dios por la paz que trae a los hombres.','María y José presentan al Niño a Dios en el templo. Simeón lo reconoce como luz de las naciones y anuncia a María que una espada le traspasará el alma.','A los doce años, Jesús se queda en el templo y sus padres lo buscan con angustia durante tres días. Lo encuentran entre los doctores, ocupado en las cosas de su Padre.'],
+luminosos:['Jesús es bautizado por Juan en el Jordán: el cielo se abre, el Espíritu desciende como una paloma y el Padre lo declara su Hijo amado.','En una boda en Caná, por intercesión de María, Jesús convierte el agua en vino y manifiesta su gloria. María dice a los sirvientes: «Hagan lo que él les diga».','Jesús proclama que el Reino de Dios está cerca, perdona pecados y llama a todos a la conversión y a creer en el Evangelio.','En el monte Tabor el rostro de Jesús resplandece ante Pedro, Santiago y Juan, y la voz del Padre dice: «Este es mi Hijo amado, escúchenlo».','En la Última Cena, Jesús se entrega bajo el signo del pan y del vino, y deja a la Iglesia su Cuerpo y su Sangre como alimento y memorial de su amor.'],
+dolorosos:['En Getsemaní, Jesús, angustiado, ora al Padre y acepta su voluntad: «No se haga mi voluntad, sino la tuya». Sus discípulos duermen.','Por orden de Pilato, Jesús es azotado cruelmente. Carga con nuestros pecados y sufre con paciencia por amor.','Los soldados le ponen una corona de espinas y se burlan de él como rey. Jesús soporta la humillación en silencio.','Jesús lleva la cruz hacia el Calvario, cae, y Simón de Cirene lo ayuda. En el camino se encuentra con su Madre.','En la cruz perdona a quienes lo crucifican, entrega a María como Madre nuestra y muere diciendo: «Padre, en tus manos encomiendo mi espíritu».'],
+gloriosos:['Al tercer día Jesús resucita y vence a la muerte. Las mujeres encuentran el sepulcro vacío y un ángel anuncia que ha resucitado.','Cuarenta días después, Jesús sube al cielo ante sus discípulos y les promete estar con ellos todos los días hasta el fin del mundo.','Reunidos con María en oración, los apóstoles reciben el Espíritu Santo en forma de lenguas de fuego y salen a anunciar el Evangelio.','Al terminar su vida terrena, María es llevada en cuerpo y alma a la gloria del cielo, anticipo de nuestra propia resurrección.','María es coronada por su Hijo como Reina del cielo y de la tierra, y intercede por nosotros como Madre de la Iglesia.']};
+function rs(){const s=S[i],on=new Set(['x']),D=j=>{on.add('d'+j+'b');for(let q=0;q<10;q++)on.add('d'+j+'s'+q)},T=n=>{for(let q=0;q<=n;q++)on.add('t'+q)};let cur='x';const m=/^(Primer|Segundo|Tercer|Cuarto|Quinto) misterio/.exec(s.k);
+if(/^(Oraciones iniciales|Peticiones)$/.test(s.k))return{on,cur};
+if(m){const j=ORD.indexOf(m[1]);for(let q=0;q<j;q++)D(q);on.add('d'+j+'b');cur='d'+j+'b';if(s.t=='Diez Ave Marías'){for(let q=0;q<cnt;q++)on.add('d'+j+'s'+q);cur=cnt<10?'d'+j+'s'+cnt:null}else if(!/^(Se lee|Padre)/.test(s.t)){D(j);cur=null}}
+else{for(let q=0;q<5;q++)D(q);if(s.k=='Por el Santo Padre'){const t=s.t;if(t=='Padre nuestro'){on.add('t0');cur='t0'}else if(t=='Tres Ave Marías'){on.add('t0');for(let q=1;q<=cnt;q++)on.add('t'+q);cur=cnt<3?'t'+(cnt+1):null}else if(t=='Gloria Patri'){T(4);cur='t4'}else if(t=='Salve Regina'){T(4);on.add('m');cur='m'}else cur='t0'}else{T(4);on.add('m');cur=null}}
+return{on,cur}}
+function paint(){const r=rs();document.querySelectorAll('.bd').forEach(e=>{const d=e.dataset.id;e.classList.toggle('on',r.on.has(d));e.classList.toggle('cur',d===r.cur)})}
+function ros(){const bd=(id,x,y,r)=>`<circle class="bd" data-id="${id}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}"/>`;
+let h=`<svg viewBox="0 0 300 430" role="img" aria-label="Camándula del rosario que se ilumina con el avance"><circle class="th" cx="150" cy="140" r="110"/><path class="th" d="M150 250V380"/><text class="rt" x="150" y="128" font-size="13">Misterios</text><text class="rt" x="150" y="153" font-size="19" font-weight="700">${M[key].n}</text>`;
+for(let j=0;j<5;j++)for(let q=0;q<11;q++){const a=(90+(1+11*j+q)*360/56)*Math.PI/180,x=150+110*Math.cos(a),y=140+110*Math.sin(a);h+=q?bd(`d${j}s${q-1}`,x,y,4.6):bd(`d${j}b`,x,y,7)}
+h+=bd('t0',150,276,7)+bd('t1',150,297,4.6)+bd('t2',150,311,4.6)+bd('t3',150,325,4.6)+bd('t4',150,349,7)+`<circle class="bd" data-id="m" cx="150" cy="250" r="10"/><path class="bd" data-id="x" d="M145 372h10v12h12v9h-12v27h-10v-27h-12v-9h12z"/></svg>`;return h}
+const ST={g:k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},s:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const pf=ST.g('rp')||{};let INT=pf.int||'',sv0=ST.g('rpr'),mp=false,ac,mg,wk,cd,rc;
+document.documentElement.style.fontSize=(pf.fs||100)+'%';document.documentElement.classList.toggle('simple',!!pf.sm);ap();
+const esc=t=>t.replace(/[&<>]/g,c=>'&#'+c.charCodeAt(0)+';');
+const FR={gozosos:['Humildad','Caridad con el prójimo','Desprendimiento de los bienes del mundo','Obediencia y pureza de corazón','Buscar a Jesús en todo'],luminosos:['Fidelidad a las promesas del bautismo','Confianza en la intercesión de María','Conversión del corazón','Deseo de santidad','Adoración y amor a la Eucaristía'],dolorosos:['Contrición de los pecados','Mortificación y pureza','Humildad ante el desprecio','Paciencia en las cruces de cada día','Perdón y salvación de las almas'],gloriosos:['Fe viva','Esperanza y deseo del cielo','Amor a Dios y docilidad al Espíritu Santo','Gracia de una buena muerte','Confianza en la intercesión de María']};
+const Q={gozosos:['¿Cuándo me cuesta decir «sí» a Dios y qué me ayudaría a confiar como María?','¿A quién puedo servir hoy sin esperar nada a cambio?','¿De qué cosas me cuesta desprenderme para hacerle lugar a Jesús?','¿Qué puedo ofrecer hoy a Dios con el corazón abierto?','¿Dónde estoy buscando a Jesús y dónde me está esperando?'],luminosos:['¿Vivo como hijo amado de Dios? ¿Qué promesas de mi bautismo debo renovar?','¿Qué necesidad pongo hoy en manos de María para que se la presente a Jesús?','¿Qué debo cambiar en mi vida para acoger el Reino de Dios?','¿Qué escucho de Jesús cuando me detengo a orar en silencio?','¿Cómo puedo prepararme mejor para recibirlo en la Eucaristía?'],dolorosos:['¿En qué momentos huyo de la voluntad de Dios y qué le pido para aceptarla?','¿Qué sufrimiento de otros puedo aliviar hoy?','¿Cómo respondo cuando me humillan o me juzgan injustamente?','¿Qué cruz de este día puedo llevar con paciencia, unido a Jesús?','¿A quién necesito perdonar hoy, como Jesús perdonó desde la cruz?'],gloriosos:['¿En qué parte de mi vida necesito la luz de la resurrección?','¿Vivo mirando al cielo sin olvidar mis tareas de aquí?','¿Qué me pide hoy el Espíritu Santo para anunciar el Evangelio con mi vida?','¿Cómo me preparo para el encuentro definitivo con Dios?','¿Qué gracia le pido hoy a María, nuestra Madre y Reina?']};
+const SP={'Padre nuestro':'; perdona','Diez Ave Marías':'\n','Tres Ave Marías':'\n','Gloria Patri':'. Como'};
+function gtxt(s){if(s.end)return s.p+`\n<span class="fr">Rosarios rezados: ${pf.n||0}${pf.g?'. Días: '+(pf.days||[]).length+' de '+pf.g+((pf.days||[]).length>=pf.g?'. ¡Meta cumplida!':''):''}</span>`;const m=SP[s.t];if(!pf.gd||!m||s.html)return s.p;const x=s.p.indexOf(m),n=m=='\n';return `<span class="lg">Guía en blanco, todos en dorado</span><span>${s.p.slice(0,x+(n?0:1))}</span>\n<span class="g2">${s.p.slice(x+(n?1:2))}</span>`}
+function fs(d){pf.fs=Math.min(150,Math.max(80,(pf.fs||100)+d));document.documentElement.style.fontSize=pf.fs+'%';ST.s('rp',pf)}
+function say(){try{const y=speechSynthesis;if(y.speaking){y.cancel();return}const u=new SpeechSynthesisUtterance(S[i].t+'. '+document.querySelector('.txt').innerText);u.lang='es-ES';u.rate=.85;y.speak(u)}catch(e){}}
+function mus(b){mp=!mp;b.setAttribute('aria-pressed',mp);try{if(!ac){ac=new AudioContext();mg=ac.createGain();mg.gain.value=0;mg.connect(ac.destination);[146.8,220,293.7,370].forEach((f,k)=>{const o=ac.createOscillator(),g=ac.createGain(),l=ac.createOscillator(),q=ac.createGain();o.frequency.value=f;g.gain.value=.05;l.frequency.value=.07+k*.03;q.gain.value=.03;l.connect(q);q.connect(g.gain);o.connect(g);g.connect(mg);o.start();l.start()})}ac.resume();mg.gain.linearRampToValueAtTime(mp?1:0,ac.currentTime+2)}catch(e){}}
+async function wl(){try{if('wakeLock' in navigator&&!wk){wk=await navigator.wakeLock.request('screen');wk.onrelease=()=>wk=null}}catch(e){}}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState=='visible'&&i>=0)wl()});
+const td=()=>new Date().toLocaleDateString('en-CA'),ea=t=>esc(t).replace(/"/g,'&quot;'),TL=()=>({dark:'noche',light:'día'}[pf.th]||'auto');
+function ap(){if(pf.th)document.documentElement.dataset.theme=pf.th;else delete document.documentElement.dataset.theme}
+function th(b){pf.th=pf.th=='dark'?'light':pf.th=='light'?null:'dark';ST.s('rp',pf);ap();b.textContent='Tema: '+TL()}
+function cnh(){const d=(pf.days||[]).length,w=(pf.log||[]).filter(x=>Date.now()-new Date(x+'T12:00')<6048e5).length;return `<p class="sub">Rosarios rezados: <b>${pf.n||0}</b></p>`+(pf.g?`<div class="cal" aria-label="Días rezados">${[...Array(pf.g)].map((_,k)=>`<i class="${k<d?'on':''}"></i>`).join('')}</div><p class="sm2">Días rezados: ${d} de ${pf.g}${d>=pf.g?'. ¡Meta cumplida!':''}</p>`:'')+`<p class="sm2">Últimos 7 días: ${w} ${w==1?'rosario':'rosarios'}</p>`}
+const MI=()=>`<details><summary>Intención para cada misterio (opcional)</summary>${[0,1,2,3,4].map(j=>`<input class="mi" placeholder="${ORD[j]} misterio: lo ofrecemos por…" value="${ea((pf.mi||[])[j]||'')}">`).join('')}</details>`;
+const EXTRA=()=>`<p><button class="rs" data-a="sh">Compartir con la familia</button></p><details><summary>Respaldo del progreso</summary><textarea id="bkc" rows="3" placeholder="Aquí aparece tu código de respaldo. Para restaurar, pégalo aquí."></textarea><button class="rs" data-a="bk">Copiar respaldo</button> <button class="rs" data-a="rr">Restaurar</button></details><details><summary>Condiciones de uso y privacidad</summary><ol><li>Esta página es una ayuda gratuita para la oración personal, familiar y comunitaria. No tiene fines comerciales: no se vende, no tiene anuncios y no se permite usarla para cobrar ni para hacer publicidad.</li><li>Los textos provienen de la tradición de la Iglesia y pueden variar entre comunidades; sigue la versión de tu parroquia si es distinta. Se ofrece «tal como está», sin garantía de que esté libre de errores o siempre disponible.</li><li>No hay cuentas ni registro. Tu contador, tus días, tus preferencias y tus intenciones se guardan solo en tu dispositivo, no en un servidor propio. Si borras los datos del navegador se pierden; usa el respaldo del progreso para conservarlos.</li><li>No escribas contraseñas ni datos personales delicados en las intenciones, sobre todo en un teléfono compartido.</li><li>La página está alojada en GitHub Pages, que puede registrar datos técnicos de las visitas, como la dirección IP, según su propia política. Las letras se cargan desde Google Fonts, que también puede recibir esa información.</li><li>Puedes compartir el enlace libremente. Si se detectan usos indebidos, el responsable puede retirar la página.</li></ol><p class="sm2">Última actualización: octubre de 2026.</p></details>`;
+function bk(b){const c=btoa(unescape(encodeURIComponent(JSON.stringify(pf)))),t=document.getElementById('bkc');t.value=c;t.select();try{navigator.clipboard.writeText(c);b.textContent='Copiado'}catch(e){b.textContent='Copia el código de abajo'}}
+function rr(b){try{const o=JSON.parse(decodeURIComponent(escape(atob(document.getElementById('bkc').value.trim()))));Object.keys(pf).forEach(k=>delete pf[k]);Object.assign(pf,o);ST.s('rp',pf);INT=pf.int||'';document.documentElement.style.fontSize=(pf.fs||100)+'%';document.documentElement.classList.toggle('simple',!!pf.sm);ap();R()}catch(e){b.textContent='Código no válido'}}
+function sh(b){const d={title:'Santo Rosario',text:'Reza el rosario conmigo',url:location.href.split('?')[0]};if(navigator.share)navigator.share(d).catch(()=>{});else{try{navigator.clipboard.writeText(d.url);b.textContent='Enlace copiado'}catch(e){b.textContent=d.url}}}
+function ub(){const d=document.createElement('div');d.className='upd';d.innerHTML='Hay una versión nueva. <button>Actualizar</button>';d.querySelector('button').onclick=()=>location.reload();document.body.append(d)}
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').then(r=>r.addEventListener('updatefound',()=>{const w=r.installing;w.addEventListener('statechange',()=>{if(w.state=='installed'&&navigator.serviceWorker.controller)ub()})})).catch(()=>{}));
+function upd(){const n=S[i].n;navigator.vibrate&&navigator.vibrate(cnt>=n?[30,40,30]:12);document.querySelectorAll('.b').forEach((b,j)=>b.classList.toggle('on',j<cnt));document.querySelector('.pray').textContent=cnt>=n?'Completado, amén':`Rezar Ave María (${cnt} de ${n})`;paint()}
+app.onclick=e=>{const b=e.target.closest('[data-a],[data-k]');if(!b)return;
+if(b.dataset.k){key=b.dataset.k;R();return}
+const x=b.dataset.a;
+if(x=='start'){lit=document.getElementById('lit').value;INT=document.getElementById('int').value;pf.int=INT;pf.mi=[...document.querySelectorAll('.mi')].map(x=>x.value);ST.s('rp',pf);build();go(0)}
+else if(x=='next')go(i+1);else if(x=='prev')go(i-1);
+else if(x=='pray'){if(cnt<S[i].n){cnt++;upd()}}
+else if(x=='again'){ST.s('rpr',null);sv0=null;i=-1;R();scrollTo(0,0)}
+else if(x=='th')th(b);else if(x=='sh')sh(b);else if(x=='bk')bk(b);else if(x=='rr')rr(b);else if(x=='fm')fs(-10);else if(x=='fp')fs(10);else if(x=='gd'){pf.gd=!pf.gd;ST.s('rp',pf);R()}
+else if(x=='rst'){if(!rc){rc=1;b.textContent='¿Seguro? Toca otra vez';return}pf.n=0;ST.s('rp',pf);rc=0;pf.days=[];pf.log=[];ST.s('rp',pf);document.querySelector('.cn').innerHTML=cnh();b.textContent='Reiniciar contador'}else if(x=='sm'){pf.sm=!pf.sm;ST.s('rp',pf);document.documentElement.classList.toggle('simple',!!pf.sm);b.setAttribute('aria-pressed',!!pf.sm)}else if(x=='say')say();else if(x=='mus')mus(b);else if(x=='zoom')document.querySelector('.ros').classList.toggle('big');
+else if(x=='cont'){key=sv0.key;lit=sv0.lit;INT=pf.int||'';build();go(sv0.i)}};
+app.onchange=e=>{if(e.target.id=='goal'){pf.g=+e.target.value;ST.s('rp',pf);pf.days=[];ST.s('rp',pf);document.querySelector('.cn').innerHTML=cnh()}if(e.target.id=='lit')lit=e.target.value;if(e.target.id=='jump')go(+e.target.value)};
+addEventListener('keydown',e=>{if(i<0||/SELECT|INPUT/.test(e.target.tagName))return;if(e.key=='ArrowRight')go(i+1);if(e.key=='ArrowLeft')go(i-1)});
+app.onkeydown=e=>{if(e.key=='Enter'&&e.target.classList&&e.target.classList.contains('ros'))e.target.click()};
+R();if(/[?&]hoy/.test(location.search)){build();go(0)}
+</script></body></html>
